@@ -1,28 +1,23 @@
 package com.cosmicdevdipesh.journal.App.entity;
 
+import lombok.*;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+
+@Document(collection = "journal_entries")
+@Data
+@NoArgsConstructor
 public class JournalEntry {
-    private long id;
+    @Id
+    private ObjectId id;
+    @NonNull
     private String title;
     private String content;
+    private LocalDateTime date;
 
-    public long getId() {
-        return id;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public String getContent() {
-        return content;
-    }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
